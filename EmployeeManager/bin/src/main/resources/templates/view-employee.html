@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{adminbase::layout(~{::title}, ~{::link}, ~{::section}, ~{::script})}">
+<head>
+	<meta charset="UTF-8" />
+	<title>All Employee</title>
+	<link rel="stylesheet" th:href="@{/css/view-employee.css}" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+	<section>
+	 <h2 style="text-align: center; margin: 40px;">All Employees</h2>
+	 <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Job Level</th>
+                <th>Unit</th>
+                <th>Office</th>
+                <th>Operation</th>
+            </tr>
+        </thead>
+        
+        <tbody id="employeeTableBody">
+            <tr th:each="employee:${employeesAllEmployee}">
+                <td th:text="${employee.getId()}">1</td>
+                <td th:text="${employee.getEmail()}">john@example.com</td>
+                <td th:text="${employee.getName()}">John Doe</td>
+                <td th:text="${employee.getRole()}">John Doe</td>
+                <td th:text="${employee.getJob_level()}">John Doe</td>
+                <td th:text="${employee.getUnit()}">John Doe</td>
+                <td th:text="${employee.getOffice()}">John Doe</td>
+                <td > <a style="padding: 5px;" th:href="@{/view-employee/delete-employee/{id}(id=${employee.getId()})}">
+					<i class="fa-solid fa-trash fa-lg" style="color: #ff0000;"></i>
+                <a style="padding: 10px;" th:href="@{/update-employee/employee/{id}(id=${employee.getId()})}"> 
+					<i class="fa-solid fa-pen fa-lg"></i>
+				</a></td>
+            </tr>
+
+        </tbody>
+	 </table>
+	</section>
+        
+
+</body>
+</html>

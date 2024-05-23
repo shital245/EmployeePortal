@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(title,link,content,script)">
+<head>
+	<meta charset="UTF-8" />
+	<title th:replace="${title}">LearnX Admin</title>
+	<link rel="stylesheet" th:replace="${link}"/>
+	<link rel="stylesheet" th:href="@{/css/adminbase.css}" />
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	
+	<nav class="topbar">
+		<label class="logo">Employee Portal</label>
+		<ul>
+			<li><a href="/employeeportal/view-employee">View Employee</a></li>
+			<li><a href="/employeeportal/add-employee">Add Employee</a></li>
+			<li><a href="/employeeportal/update-employee">Update Employee</a></li>
+		</ul>
+	</nav>
+	
+    <div class="form" th:replace="${content}">
+		
+	</div>
+
+	
+</body>
+</html>
